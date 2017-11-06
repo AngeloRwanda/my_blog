@@ -17,7 +17,9 @@ Apartment.configure do |config|
   #
   # config.excluded_models = %w{ Tenant }
 
-  config.excluded_models = %w{ User }
+  config.excluded_models = ['User']
+
+  Apartment::Elevators::Subdomain.excluded_subdomains = ['www']
 
 
   # In order to migrate all of your Tenants you need to provide a list of Tenant names to Apartment.
@@ -92,4 +94,6 @@ end
 
 # Rails.application.config.middleware.use 'Apartment::Elevators::Domain'
 Rails.application.config.middleware.use Apartment::Elevators::Subdomain
+Rails.application.config.middleware.insert_before Warden::Manager, Apartment::Elevators::Subdomain
+
 # Rails.application.config.middleware.use 'Apartment::Elevators::FirstSubdomain'
