@@ -5,9 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# gem 'subdomain-fu', :git => "git://github.com/nhowell/subdomain-fu.git"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
+gem 'rails', '~> 5.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -35,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 #for multitenancy
 gem 'apartment'
-
+ 
 #devise
 gem 'devise'
 
@@ -58,3 +59,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+

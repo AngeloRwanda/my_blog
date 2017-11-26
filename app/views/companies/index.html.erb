@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Companies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Subdomain</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= company.subdomain %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Company', new_company_path %>

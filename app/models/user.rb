@@ -1,15 +1,16 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-	
-	after_create :create_tenant
+  
+  belongs_to :company
 
-	private
-		def create_tenant
-			subdomain = email.split("@").first
-			Apartment::Tenant.create(subdomain)
-			
-		end
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+
+
+
+  def subdomain
+  	self.company.subdomain		
+  end
+
+  
 end
